@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import toast, { Toaster } from 'react-hot-toast';
 import PropTypes from 'prop-types';
-import { useCreateContactMutation } from '../../redux/services/contacts';
+import { useCreateContactMutation } from '../../redux/contacts/contacts';
 import {
   Message,
   Label,
