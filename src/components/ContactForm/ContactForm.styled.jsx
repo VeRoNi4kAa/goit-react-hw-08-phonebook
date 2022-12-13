@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Message = styled.p`
   color: tomato;
@@ -10,7 +10,7 @@ export const Label = styled.label`
 export const SubmitButton = styled.button`
   margin-top: 20px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
 `;
 export const FormContainer = styled.div`
