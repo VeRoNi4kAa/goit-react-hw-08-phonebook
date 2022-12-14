@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Contacts from './views/contacts/Contacts';
+import Contacts from 'views/Contacts/Contacts';
 import AppBar from 'components/AppBar';
-import Register from 'views/contacts/Register';
-import LogIn from 'views/contacts/LogIn';
+import Register from 'views/Register';
+import LogIn from 'views/LogIn';
 import { authOperations, authSelectors } from 'redux/auth';
 import { PrivateRoute } from 'components/AppBar/PrivateRoute/PrivateRoute';
 import { PublicRoute } from 'components/AppBar/PublicRoute/PublicRoute';

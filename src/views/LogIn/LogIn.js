@@ -1,45 +1,38 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { Message, Label, SubmitButton, FormContainer } from './Register.styled';
-import { authOperations } from '../../../redux/auth';
+import { Toaster } from 'react-hot-toast';
+import { Message, Label, SubmitButton, FormContainer } from './LogIn.styled';
+import { authOperations } from '../../redux/auth';
 
-export default function Register() {
+export default function LogIn() {
   const dispatch = useDispatch();
 
   const schema = yup.object().shape({
-    name: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().required(),
   });
 
-  const handleSubmit = ({ name, email, password }, { resetForm }) => {
-    const newUser = {
-      name: name,
+  const handleSubmit = ({ email, password }, { resetForm }) => {
+    const user = {
       email: email,
       password: password,
     };
-    dispatch(authOperations.register(newUser));
+    dispatch(authOperations.logIn(user));
     resetForm();
   };
 
   return (
     <div>
+      <Toaster />
       <Formik
-        initialValues={{ name: '', email: '', password: '' }}
+        initialValues={{ email: '', password: '' }}
         onSubmit={handleSubmit}
         validationSchema={schema}
       >
         <FormContainer>
           <Form>
-            <div>
-              <Label htmlFor="name">Name</Label>
-              <Field type="text" name="name" />
-              <ErrorMessage
-                name="name"
-                render={message => <Message>Please enter name</Message>}
-              />
-            </div>
+            {}
             <div>
               <Label htmlFor="email">E-mail</Label>
               <Field type="email" name="email" />
@@ -56,7 +49,7 @@ export default function Register() {
                 render={message => <Message>Please enter password</Message>}
               />
             </div>
-            <SubmitButton type="submit">Register</SubmitButton>
+            <SubmitButton type="submit">Login</SubmitButton>
           </Form>
         </FormContainer>
       </Formik>
